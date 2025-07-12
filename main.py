@@ -1,6 +1,7 @@
 import sys
 import os
 import tkinter as tk
+from tkinter import messagebox
 import psutil
 import time
 from threading import Thread
@@ -48,7 +49,7 @@ class ProcessMonitorApp:
         def confirm():
             self.selected_aliases = {alias for alias, var in self.var_dict.items() if var.get() == 1}
             if not self.selected_aliases:
-                tk.messagebox.showwarning("提示", "请至少选择一项！")
+                messagebox.showwarning("提示", "请至少选择一项！")
                 return
             selector.destroy()
             self.setup_monitoring()
